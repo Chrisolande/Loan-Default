@@ -106,7 +106,7 @@ source("install_dependencies.R")
      * Neural Networks (MLP)
      * Random Forest
      * XGBoost
-   - Racing ANOVA hyperparameter tuning
+   - Racing ANOVA and Bayesian Optimization hyperparameter tuning
    - Cross-validation
 
 5. **Rigorous Model Evaluation**
