@@ -1,24 +1,28 @@
-# install_dependencies.R
+# Ensure librarian is installed
+if (!requireNamespace("librarian", quietly = TRUE)) install.packages("librarian")
 
-# Define a vector of required packages
-required_packages <- c(
-  "tidyverse", "skimr", "corrplot", "GGally", "viridis", "patchwork",
-  "scales", "gridExtra", "ggridges", "ggpubr", "ggbiplot",
-  "tidymodels", "vip", "factoextra", "finetune", "ranger", "xgboost", "Boruta",
-  "janitor", "summarytools", "tictoc", "kableExtra"
+# Install required packages
+librarian::install(
+  # Data manipulation and tidyverse
+  tidyverse, tidymodels, janitor, skimr,
+  
+  # Visualization
+  GGally, corrplot, plotly, viridis, 
+  ggthemes, ggridges, scales, vcd, 
+  RColorBrewer, ggraph, DataExplorer,
+  
+  # Machine Learning and Statistical Tools
+  pROC, factoextra, cluster, 
+  MASS, Rtsne, tsne, umap, 
+  caTools, PCAtest, naniar, vip,
+  xgboost, caret, finetune, dendextend,
+  elasticnet, PMA, rospca, factoextra,
+  
+  # Additional Utilities
+  conflicted, gridExtra, 
+  kableExtra, DT, 
+  igraph, qgraph, 
+  entropy
 )
-
-# Function to install a package if not already installed
-install_if_missing <- function(pkg) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    message(paste("Installing", pkg, "..."))
-    install.packages(pkg, dependencies = TRUE)
-  } else {
-    message(paste(pkg, "is already installed."))
-  }
-}
-
-# Install each package in the list
-invisible(sapply(required_packages, install_if_missing))
 
 message("All packages are installed and ready!")
